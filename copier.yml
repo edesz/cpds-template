@@ -38,6 +38,7 @@ _exclude:
   - pixi.toml
   - README.md
   - .gitignore
+  - .git
 
 _jinja_extensions:
   - copier_template_extensions.TemplateExtensionLoader
