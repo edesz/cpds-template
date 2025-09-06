@@ -20,7 +20,7 @@ description:
 
 include_tests:
   type: bool
-  default: false
+  default: true
   help: Do you want to include tests?
 
 open_source_license:
