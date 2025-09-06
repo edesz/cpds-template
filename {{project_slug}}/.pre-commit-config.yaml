@@ -1,0 +1,29 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.11.13
+    hooks:
+    - id: ruff-check
+      name: Ensure ruff code linting is applied
+      language_version: python3.10.12
+      types_or: [python, pyi, jupyter]
+      args: ["--preview", "--no-fix"]
+      verbose: true
+    - id: ruff-format
+      name: Ensure ruff code formatting is applied
+      language_version: python3.10.12
+      types_or: [python, pyi, jupyter]
+      args: ["--preview", "--check", "--diff"]
+      verbose: true
+  - repo: https://github.com/econchick/interrogate
+    rev: 1.7.0
+    hooks:
+    - id: interrogate
+      name: Ensure docstrings are present
+      language_version: python3.10.12
+      args: [--verbose, --fail-under=95]
+      verbose: true
+      exclude: |
+          (?x)(
+              ^notebooks/|
+              __init__.py
+          )

@@ -1,0 +1,166 @@
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".ipynb",
+    ".ipynb_checkpoints",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pixi",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".ipynb",
+    ".venv",
+    ".vscode",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "site-packages",
+    "venv",
+    # directory to store bytecode files (.pyc)
+    "__pycache__",
+    # file to mark directories as packages
+    "__init__.py",
+    # directory to store notebooks (.ipynb)
+    "notebooks",
+    "data",
+    "models",
+]
+
+# Same as Black.
+line-length = 79
+indent-width = 4
+
+# Assume Python 3.10
+target-version = "py310"
+
+[lint]
+# Enable Pyflakes (`F`) and a subset of the pycodestyle (`E`) codes by default.
+# Unlike Flake8, Ruff doesn't enable pycodestyle warnings (`W`) or
+# McCabe complexity (`C901`) by default.
+select = [
+    # blank lines after imports and before/after methods/functions
+    "E3",
+    # imports on single line and at top of file
+    "E4",
+    # line too long
+    "E501",
+    # remove ambiguity
+    "E7",
+    # error reading file
+    "E9",
+    # pyflakes to detect syntax errors and basic mistakes
+    "F",
+    # unsorted or missing imports
+    "I",
+    # warnings for style issues
+    "W",
+    # flake8-bandit security issues in place of https://github.com/PyCQA/bandit
+    "S",
+    # Upgrade syntax for newer versions of Python
+    "UP",
+    # shebang should contain python
+    "EXE003",
+    # avoid whitespace before shebang
+    "EXE004",
+    # shebang should be at beginning of file
+    "EXE005",
+    # docstring linting and consistency
+    "DOC",
+    # docstring formatting for modules, functions and scripts
+    # script: https://realpython.com/documenting-python-code/#script-docstrings
+    "D",
+    # no docstring coverage like interrogate
+    # https://github.com/astral-sh/ruff/issues/10051
+    # enforces type annotation style
+    "ANN",
+    # use pathlib
+    "PTH",
+]
+ignore = [
+    # name is too complex
+    "C901",
+    # No blank lines allowed before class docstring
+    # (excluded due to conflict with D211)
+    "D203",
+    # Multi-line docstring summary should start at the second line
+    # (excluded due to conflict with D212)
+    "D213",
+    # Ignored rules from Corey M Schafer's ruff configuration from here:
+    # https://github.com/CoreyMSchafer/dotfiles/blob/master/settings/ruff.toml
+    # Flake8-boolean-trap - boolean position value in function call
+    "FBT003",
+    # flake8-bandit - Possible hardcoded password assigned to argument: "password"
+    "S106",
+    # Flake8-bandit - Standard pseudo-random generators are not suitable for security/cryptographic purposes
+    "S608",
+    # Flake8-bandit - Do not use assert
+    "S101",
+    # Flake8-return - Checks for variable assignments that immediately precede a return of the assigned variable.
+    "RET504",
+    # Flake8-future-annotations - Missing `from __future__ import annotations`, but uses PEP 604 union
+    "FA102",
+    # Prefer | (pipe) over typing.Union
+    "UP007",
+    # Docstring linting - Add "Returns" section to docstring
+    "DOC201",
+    # Docstring linting - Do not allow blank line after function docstring
+    "D202",
+    # Docstring linting - Document yield in docstring
+    "DOC402",
+    # Enforce type annotation for return type for public functions
+    "ANN201",
+    # Require type annotation for __init__
+    "ANN204",
+    # Prevent dynamically typed expressions (typing.Any)
+    "ANN401",
+]
+
+# Require blank lines after Python import statements
+isort.lines-after-imports = 2
+
+# Allow fix for all enabled rules (when `--fix`) is provided.
+fixable = ["ALL"]
+unfixable = []
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+# Enable auto-formatting of code examples in docstrings. Markdown,
+# reStructuredText code/literal blocks and doctests are all supported.
+#
+# This is currently disabled by default, but it is planned for this
+# to be opt-out in the future.
+docstring-code-format = true
+
+# Set the line length limit used when formatting code snippets in
+# docstrings.
+#
+# This only has an effect when the `docstring-code-format` setting is
+# enabled.
+docstring-code-line-length = "dynamic"

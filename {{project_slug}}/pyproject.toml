@@ -1,0 +1,100 @@
+# ============================== Project metadata ==============================
+
+[project]
+name = "myproject"
+version = "0.1.0"
+description = "Project description"
+authors = [{name = "edesz", email = "firstname.lastname@domain.com"}]
+requires-python = ">= 3.10"
+# These are the PyPI dependencies, added with: pixi add --pypi PACKAGE_NAME
+dependencies = [
+    "numpy==2.3.2",
+    "duckdb==1.3.2",
+    "ibis-framework==10.8.0",
+]
+
+[tool.pixi.project]
+channels = ["https://prefix.dev/conda-forge"]
+platforms = [
+    "linux-64",
+]
+
+# ============================= Conda dependencies =============================
+
+[tool.pixi.dependencies]
+python = "3.12.10.*"
+# use conda-forge pyarrow in order to get required C dependencies
+pyarrow = "==21.0.0"
+
+# ================== Make this project available as a package ==================
+
+[tool.pixi.pypi-dependencies]
+myproject = { path = ".", editable = true }
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling"]
+
+# ========= Specify non-essential dependencies in features ========
+
+[tool.pixi.feature.notebooks.dependencies]
+# create a notebooks feature for exploration
+ipywidgets = "==8.1.7"
+jupyterlab = "==4.4.6"
+pandas = "==2.3.2"
+ruff = "==0.12.11"
+
+[tool.pixi.feature.codecheck.pypi-dependencies]
+# create a manual code linting feature
+ruff = "==0.12.11"
+
+[tool.pixi.feature.lint.pypi-dependencies]
+# create a code linting feature
+pre-commit = "==4.2.0"
+ruff = "==0.12.11"
+
+[tool.pixi.feature.ci.dependencies]
+# create a data ci feature
+ipywidgets = "==8.1.7"
+jupyter = "==1.1.1"
+ipykernel = "==6.30.1"
+pandas = "==2.3.2"
+papermill = "==2.6.0"
+nbconvert = "==7.16.6"
+typer = "==0.17.3"
+
+# ========= Specify non-essential dependencies in environments ========
+
+[tool.pixi.environments]
+# create environments that use features created above
+codecheck = { features = ["codecheck"], solve-group = "default" }
+lint = { features = ["lint"], solve-group = "default" }
+notebooks = { features = ["notebooks"], solve-group = "default" }
+ci = { features = ["ci"], solve-group = "default" }
+default = { solve-group = "default" }
+
+# ========================== Define tasks (shortcuts) ==========================
+
+[tool.pixi.feature.notebooks.tasks]
+# run development tasks for the notebooks feature
+jlab = { cmd = "jupyter lab", depends-on = [] }
+
+[tool.pixi.feature.lint.tasks]
+# run code checks for the linting feature
+lint = { cmd = """
+    pre-commit autoupdate
+    && pre-commit install
+    && pre-commit run -a
+    """, depends-on = [] }
+
+[tool.pixi.feature.codecheck.tasks]
+# run code checks for the manual linting feature
+lint-manual = { cmd = """
+    ruff check . --preview --no-fix --config ruff.toml
+    """, depends-on = [] }
+
+[tool.pixi.feature.ci.tasks]
+# programmatically run all development tasks for the ci feature
+pmill = { cmd = """
+    python3 papermill_runner.py 01
+    """, depends-on = ["lint-manual"] }
