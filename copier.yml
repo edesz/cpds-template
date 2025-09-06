@@ -36,6 +36,8 @@ open_source_license:
 _exclude:
   - project_name-slug
   - pixi.toml
+  - README.md
+  - .gitignore
 
 _jinja_extensions:
   - copier_template_extensions.TemplateExtensionLoader

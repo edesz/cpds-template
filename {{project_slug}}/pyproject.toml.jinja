@@ -64,7 +64,7 @@ pytest-html = "==4.1.1"
 pytest-md = "==0.2.0"
 pytest-repeat = "==0.9.4"
 rich= "==14.1.0"
-{%- endif -%}
+{%- endif %}
 
 [tool.pixi.feature.ci.dependencies]
 # create a data ci feature
@@ -84,7 +84,7 @@ codecheck = { features = ["codecheck"], solve-group = "default" }
 lint = { features = ["lint"], solve-group = "default" }
 {% if include_tests -%}
 tests = { features = ["tests"], solve-group = "default" }
-{%- endif -%}
+{%- endif %}
 notebooks = { features = ["notebooks"], solve-group = "default" }
 ci = { features = ["ci"], solve-group = "default" }
 default = { solve-group = "default" }
@@ -117,7 +117,7 @@ test = { cmd = """
     && coverage report -m
     && coverage html && coverage xml
     """, depends-on = [] }
-{%- endif -%}
+{%- endif %}
 
 [tool.pixi.feature.ci.tasks]
 # programmatically run all development tasks for the ci feature
