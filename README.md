@@ -75,3 +75,5 @@ Use one of the two approaches below to create a new project in `~/Downloads/<pro
 ## To Be Done
 
 1. Write [tests for this `copier` template](https://github.com/noirbizarre/pytest-copier?tab=readme-ov-file#pytest-copier).
+2. Add demo notebook.
+3. Run demo notebook using `papermill_runner.py` with a [`copier` task](https://copier.readthedocs.io/en/stable/configuring/#tasks) (post-gen hook).
