@@ -1,6 +1,6 @@
 # Python Data Analysis Template
 
-This project uses [copier](https://copier.readthedocs.io/en/stable/) to provide an opinionated template for Python data analysis projects using Jupyter notebooks. This template is based on the [cookiecutter-data-science template](https://github.com/drivendataorg/cookiecutter-data-science/tree/master/%7B%7B%20cookiecutter.repo_name%20%7D%7D).
+This project uses [copier](https://copier.readthedocs.io/en/stable/) to provide an opinionated template for Python data science projects using Jupyter notebooks. This template is based on the [cookiecutter-data-science template](https://github.com/drivendataorg/cookiecutter-data-science/tree/master/%7B%7B%20cookiecutter.repo_name%20%7D%7D).
 
 ![Static Badge](https://img.shields.io/badge/Template-Copier?style=for-the-badge&label=Copier&color=%23FFD000)
 ![Static Badge](https://img.shields.io/badge/MIT-License?style=for-the-badge&label=LICENSE&color=%2326ED46)
