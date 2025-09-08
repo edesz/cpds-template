@@ -44,7 +44,8 @@ open_source_license:
   default: MIT
 
 _exclude:
-  - includes
+  - project_name-slug.jinja
+  - slugify.jinja
   - pixi.toml
   - README.md
   - .gitignore
