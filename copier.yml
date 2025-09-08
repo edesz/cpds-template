@@ -8,6 +8,16 @@ project_slug:
   help: A slug of the project name.
   default: "{% include 'project_name-slug.jinja' %}"
 
+module_name:
+  type: str
+  help: What is the name of the module?
+  default: mymodule
+
+module_slug:
+  type: str
+  help: A slug of the module name.
+  default: "{% from 'slugify.jinja' import slugify %}{{ slugify(module_name) }}"
+
 user_name:
   type: str
   help: What is your github username?
@@ -34,7 +44,7 @@ open_source_license:
   default: MIT
 
 _exclude:
-  - project_name-slug
+  - includes
   - pixi.toml
   - README.md
   - .gitignore
