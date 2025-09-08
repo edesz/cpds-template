@@ -16,7 +16,7 @@ module_name:
 module_slug:
   type: str
   help: A slug of the module name.
-  default: "{% from 'includes.slugify.jinja' import slugify %}{{ slugify(module_name) }}"
+  default: "{% from 'slugify.jinja' import slugify %}{{ slugify(module_name) }}"
 
 user_name:
   type: str
