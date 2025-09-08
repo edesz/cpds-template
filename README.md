@@ -20,10 +20,10 @@ Use one of the two approaches below to create a new project in `~/Downloads/<pro
    copier copy https://github.com/edesz/cpds-template.git ~/.Downloads
    ```
    where
-   - `https://github.com/edesz/cpds-template.git` is the remote path to the `copier` template
-     - this is the [`src_path` in `copier copy`](https://copier.readthedocs.io/en/stable/reference/main/#copier._main.Worker)
-   - `~/.Downloads` is the destination path where to render the templated project
-     - this is the [`dst_path` in `copier copy`](https://copier.readthedocs.io/en/stable/reference/main/#copier._main.Worker)
+   - `https://github.com/edesz/cpds-template.git`
+     - is the [`src_path` in `copier copy`](https://copier.readthedocs.io/en/stable/reference/main/#copier._main.Worker) and it is the remote path to the `copier` template
+   - `~/.Downloads`
+     - is the [`dst_path` in `copier copy`](https://copier.readthedocs.io/en/stable/reference/main/#copier._main.Worker) and it is the destination path where to render the templated project
 
 ### Using `copier` with `pixi`
 
