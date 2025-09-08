@@ -20,8 +20,10 @@ Use one of the two approaches below to create a new project in `~/Downloads/<pro
    copier copy https://github.com/edesz/cpds-template.git ~/.Downloads
    ```
    where
-   - ([`copier`'s `src_path`](https://copier.readthedocs.io/en/stable/reference/main/#copier._main.Worker)) `https://github.com/edesz/cpds-template.git` is the remote path to the `copier` template
-   - ([`copier`'s `dst_path`](https://copier.readthedocs.io/en/stable/reference/main/#copier._main.Worker)) `~/.Downloads` is the destination path where to render the templated project
+   - `https://github.com/edesz/cpds-template.git` is the remote path to the `copier` template
+     - this is the [`src_path` in `copier copy`](https://copier.readthedocs.io/en/stable/reference/main/#copier._main.Worker)
+   - `~/.Downloads` is the destination path where to render the templated project
+     - this is the [`dst_path` in `copier copy`](https://copier.readthedocs.io/en/stable/reference/main/#copier._main.Worker)
 
 ### Using `copier` with `pixi`
 
@@ -60,8 +62,10 @@ Use one of the two approaches below to create a new project in `~/Downloads/<pro
        start = "copier copy ../cpds-template . --trust"
        ```
        where
-       - (`src_path`) `../cpds-template` resolves to `~/Downloads/cpds-template` is a string that can be resolved to the local path to the cloned `copier` template
-       - (`dst_path`) `.` resolves to `~/Downloads` is the destination path where to render the templated project
+       - `../cpds-template` resolves to `~/Downloads/cpds-template`
+         - this is the `copier copy` source template path (`src_path`), which is a string that can be resolved to the local path to the cloned `copier` template
+       - `.` resolves to `~/Downloads`
+         - this is the `copier copy` destination path (`dst_path`), which is the destination path where to render the templated project
 5. Change into the temorary directory
    ```bash
    cd Downloads/projects
@@ -77,4 +81,3 @@ Use one of the two approaches below to create a new project in `~/Downloads/<pro
 1. Write [tests for this `copier` template](https://github.com/noirbizarre/pytest-copier?tab=readme-ov-file#pytest-copier).
 2. Add demo notebook.
 3. Run demo notebook using `papermill_runner.py` with a [`copier` task](https://copier.readthedocs.io/en/stable/configuring/#tasks) (post-gen hook).
-4. Add conditional `tests` feature and associated tasks to `{{project_slug}}/pyproject.toml` that are rendered if `include_tests` is specified as `True`.
