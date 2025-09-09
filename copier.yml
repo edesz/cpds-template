@@ -48,6 +48,7 @@ _exclude:
   - slugify.jinja
   - pixi.toml
   - README.md
+  - LICENSE
   - .gitignore
   - .git
 
