@@ -39,12 +39,12 @@ Use one of the two approaches below to create a new project in `~/Downloads/<pro
    version = "0.1.0"
 
    [dependencies]
-   python = ">3.10,<=3.12"
+   python = ">3.10"
 
    [pypi-dependencies]
-   copier = ">=9.10.1,<10"
-   jinja2-time = ">=0.2.0,<0.3"
-   copier-template-extensions = ">=0.3.3, <0.4"
+   copier = "*"
+   jinja2-time = "*"
+   copier-template-extensions = "*"
 
    [tasks]
    start = "copier copy https://github.com/edesz/cpds-template.git ../Downloads --trust"
