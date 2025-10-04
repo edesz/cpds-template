@@ -1,7 +1,7 @@
 # ============================== Project metadata ==============================
 
 [project]
-name = "{{project_slug}}"
+name = "{{module_slug}}"
 version = "0.1.0"
 description = "{{project_slug}}"
 authors = [{name = "edesz", email = "firstname.lastname@domain.com"}]
@@ -26,7 +26,7 @@ pyarrow = "*"
 # ================== Make this project available as a package ==================
 
 [tool.pixi.pypi-dependencies]
-myproject = { path = ".", editable = true }
+{{module_slug}} = { path = ".", editable = true }
 
 [build-system]
 build-backend = "hatchling.build"
