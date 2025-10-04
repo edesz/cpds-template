@@ -3,7 +3,6 @@
 
 """Run Jupyter notebooks."""
 
-import copy
 import json
 import os
 from datetime import datetime
