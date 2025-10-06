@@ -47,7 +47,6 @@ _exclude:
   - project_name-slug.jinja
   - slugify.jinja
   - pixi.toml
-  - .gitignore
   - .git
 
 _jinja_extensions:
