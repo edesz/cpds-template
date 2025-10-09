@@ -36,19 +36,19 @@ requires = ["hatchling"]
 
 [tool.pixi.feature.notebooks.dependencies]
 # create a notebooks feature for exploration
-ipywidgets = "==8.1.7"
-jupyterlab = "==4.4.6"
-pandas = "==2.3.2"
-ruff = "==0.12.11"
+ipywidgets = "*"
+jupyterlab = "*"
+pandas = "*"
+ruff = "*"
 
 [tool.pixi.feature.codecheck.pypi-dependencies]
 # create a manual code linting feature
-ruff = "==0.12.11"
+ruff = "*"
 
 [tool.pixi.feature.lint.pypi-dependencies]
 # create a code linting feature
-pre-commit = "==4.2.0"
-ruff = "==0.12.11"
+pre-commit = "*"
+ruff = "*"
 
 {% if include_tests -%}
 [tool.pixi.feature.tests.pypi-dependencies]
@@ -65,13 +65,13 @@ rich= "==14.1.0"
 
 [tool.pixi.feature.ci.dependencies]
 # create a data ci feature
-ipywidgets = "==8.1.7"
-jupyter = "==1.1.1"
-ipykernel = "==6.30.1"
-pandas = "==2.3.2"
-papermill = "==2.6.0"
-nbconvert = "==7.16.6"
-typer = "==0.17.3"
+ipywidgets = "*"
+jupyter = "*"
+ipykernel = "*"
+pandas = "*"
+papermill = "*"
+nbconvert = "*"
+typer = "*"
 
 # ========= Specify non-essential dependencies in environments ========
 
